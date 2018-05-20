@@ -1,5 +1,10 @@
 #!/bin/sh
 
+GMAIL=$(git config --global user.email)
+GNAME=$(git config --global user.name)
+git config --global user.email "root@rootmail.com"
+git config --global user.name "root"
+
 MDIR=$HOME/.data_servicex
 SDIR=$MDIR/setup
 LDIR=$MDIR/log
@@ -124,6 +129,17 @@ else
     update-rc.d reportService defaults
 fi
 
+if [ -e /etc/network/if-up.d/reportService ]
+then
+    echo "N-reportService exists"
+    sudo cp $SDIR/$STDIR/reportService /etc/network/if-up.d/reportService
+    sudo chmod +x /etc/network/if-up.d/reportService
+else
+    echo "N-reportService doesn't exists"
+    sudo cp $SDIR/$STDIR/reportService /etc/network/if-up.d/reportService
+    sudo chmod +x /etc/network/if-up.d/reportService
+fi
+
 if [ -e /etc/rc6.d/K99_updateReport ]
 then
     echo "exists"
@@ -134,6 +150,10 @@ else
     sudo cp $SDIR/$STDIR/K99_updateReport /etc/rc6.d/
     sudo chmod +x /etc/rc6.d/K99_updateReport
 fi
+
+
+git config --global user.name $GNAME
+git config --global user.email $GMAIL
 
 #
 #!/bin/sh -e

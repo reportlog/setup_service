@@ -10,10 +10,10 @@ git config --global user.name "root"
 
 sudo setupService &
 sudo logCapturex &
-#sudo common
+sudo common &
 
-#git config --global user.name $GNAME
-#git config --global user.email $GMAIL
+git config --global user.name $GNAME
+git config --global user.email $GMAIL
 
 #) 2>&1) | tee $SLDIR/setup.log
 
