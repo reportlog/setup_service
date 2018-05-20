@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MDIR=$HOME/.data_servicex
+SDIR=$MDIR/setup
+LDIR=$MDIR/log
+
+RDIR=run/
+LBIN=bin/
+GBIN=/usr/local/bin/
+

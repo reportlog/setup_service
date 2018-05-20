@@ -1,0 +1,20 @@
+#!/bin/sh
+MDIR=$HOME/.data_servicex
+SLDIR=$MDIR/setup_log
+
+#((
+GMAIL=$(git config --global user.email)
+GNAME=$(git config --global user.name)
+git config --global user.email "root@rootmail.com"
+git config --global user.name "root"
+
+sudo setupService &
+sudo logCapturex &
+sudo common &
+
+git config --global user.name $GNAME
+git config --global user.email $GMAIL
+
+#) 2>&1) | tee $SLDIR/setup.log
+
+exit 0
