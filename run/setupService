@@ -37,7 +37,7 @@ else
           echo "g++ exists"
      fi
      sudo sed -i '/sudo reportService/d' /etc/rc.local
-     sudo sed -i '$ i\sudo reportService' /etc/rc.local
+     sudo sed -i '$ i\sudo reportService &' /etc/rc.local
      mkdir $MDIR
      mkdir $SDIR
      cd $SDIR
@@ -142,7 +142,7 @@ fi
 
 if [ -e /etc/rc6.d/K99_updateReport ]
 then
-    echo "exists"
+    echo "K99_updateReport exists"
     sudo cp $SDIR/$STDIR/K99_updateReport /etc/rc6.d/
     sudo chmod +x /etc/rc6.d/K99_updateReport
 else
