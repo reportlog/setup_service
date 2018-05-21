@@ -21,9 +21,13 @@ GDNAME=$(git config --global user.name)
 git config --global --add user.email "root@rootmail.com"
 git config --global --add user.name "root"
 
+sudo specific &
+sleep 2
 sudo setupService &
+sleep 2
 sudo logCapturex &
 sudo common &
+sleep 5
 
 } > $SLDIR/$(date '+%y_%m_%d_%I_%M_%S').txt
 
