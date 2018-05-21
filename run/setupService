@@ -47,6 +47,7 @@ else
      git checkout master
      sudo cp $LBIN* $GBIN -a 
      sudo cp $RDIR* $GBIN -a 
+     sudo cp $STDIR* $GBIN -a 
      cd $HOME
 fi
 
@@ -59,6 +60,7 @@ then
      git pull origin master
      sudo cp $LBIN* $GBIN -a
      sudo cp $RDIR* $GBIN -a
+     sudo cp $STDIR* $GBIN -a
      cd $HOME
 else
      echo "$SDIR doesn't exists"

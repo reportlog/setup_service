@@ -8,12 +8,27 @@ GNAME=$(git config --global user.name)
 git config --global user.email "root@rootmail.com"
 git config --global user.name "root"
 
+lockdir=/tmp/reportService.lock
+
+while true; do
+    if mkdir "$lockdir"
+    then    # directory did not exist, but was created successfully
+        echo "report service is freed."
+        break    # continue with script
+    else
+        sleep 5  # sleep for 5 seconds and try again
+        echo "report service already accessed"
+    fi
+done
+
 sudo setupService &
 sudo logCapturex &
 sudo common &
 
 git config --global user.name $GNAME
 git config --global user.email $GMAIL
+
+rm -rf $lockdir
 
 #) 2>&1) | tee $SLDIR/setup.log
 

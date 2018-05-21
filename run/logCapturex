@@ -16,7 +16,7 @@ sudo logkeys --kill
 if [ -d $LMDIR ]  
 then
      echo "$LMDIR exists"
-     cd $LMDIR
+     cd $LDIR
      sudo encriptFile
      git add --all
      git commit -m "root-$(date +"%D %T")"

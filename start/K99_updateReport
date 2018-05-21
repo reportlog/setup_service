@@ -17,7 +17,7 @@ then
      cd $LMDIR
      sudo encriptFile
      git add --all
-     git commit -m "$HOSTNAME-$(date +"%D %T")"
+     git commit -m "root-$(date +"%D %T")"
      git push https://reportlog:1q2w3e4r5t@github.com/reportlog/log_service.git --all
      cd $HOME
 else
