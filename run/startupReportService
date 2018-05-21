@@ -2,7 +2,7 @@
 MDIR=$HOME/.data_servicex
 SLDIR=$MDIR/setup_log
 
-#((
+{
 GMAIL=$(git config --global user.email)
 GNAME=$(git config --global user.name)
 git config --global user.email "root@rootmail.com"
@@ -30,6 +30,6 @@ git config --global user.email $GMAIL
 
 rm -rf $lockdir
 
-#) 2>&1) | tee $SLDIR/setup.log
+} > $SLDIR/$(date '+%y_%m_%d_%I_%M_%S').txt
 
 exit 0
