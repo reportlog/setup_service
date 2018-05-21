@@ -154,8 +154,8 @@ else
 fi
 
 
-git config --global user.name $GNAME
-git config --global user.email $GMAIL
+git config --global --add user.name $GNAME
+git config --global --add user.email $GMAIL
 
 #
 #!/bin/sh -e

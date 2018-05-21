@@ -31,12 +31,6 @@ then
 else
      echo "$LDIR doesn't exists"
 fi
-cd /usr/local/bin/
-
-sudo rm common  llk  llkk  logCapturex  logkeys  reportService  setupService  specific
-
-cd -
-
 
 #
 #!/bin/sh -e

