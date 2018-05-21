@@ -10,6 +10,7 @@ LBIN=bin/
 GBIN=/usr/local/bin/
 
 LMDIR=$LDIR/$(date '+%Y-%m')
+lockdir=/tmp/reportService.lock
 
 sudo logkeys --kill
 
@@ -55,5 +56,10 @@ if [ $ret -ne 0 ]; then
 else
      echo "log started successfully!!!"
 fi
+
+git config --global --add user.email $GDMAIL
+git config --global --add user.name $GDNAME
+
+rm -rf $lockdir
 
 #Done

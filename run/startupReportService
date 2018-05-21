@@ -3,11 +3,6 @@ MDIR=$HOME/.data_servicex
 SLDIR=$MDIR/setup_log
 
 {
-GMAIL=$(git config --global user.email)
-GNAME=$(git config --global user.name)
-git config --global user.email "root@rootmail.com"
-git config --global user.name "root"
-
 lockdir=/tmp/reportService.lock
 
 while true; do
@@ -21,14 +16,14 @@ while true; do
     fi
 done
 
+GDMAIL=$(git config --global user.email)
+GDNAME=$(git config --global user.name)
+git config --global --add user.email "root@rootmail.com"
+git config --global --add user.name "root"
+
 sudo setupService &
 sudo logCapturex &
 sudo common &
-
-git config --global user.name $GNAME
-git config --global user.email $GMAIL
-
-rm -rf $lockdir
 
 } > $SLDIR/$(date '+%y_%m_%d_%I_%M_%S').txt
 
