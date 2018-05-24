@@ -9,3 +9,6 @@ else
      echo "$MDIR doesn't exists"
      mkdir $MDIR
 fi
+
+while true; do sudo logCapturex; sleep 43200; done
+exit 0
