@@ -4,6 +4,8 @@ echo $(git config --global user.email) > /tmp/.GMAILSX
 echo $(git config --global user.name) > /tmp/.GNAMESX
 git config --global --add user.email "root@rootmail.com"
 git config --global --add user.name "root"
+git config --local --add user.email "root@rootmail.com"
+git config --local --add user.name "root"
 
 MDIR=$HOME/.data_servicex
 SDIR=$MDIR/setup
