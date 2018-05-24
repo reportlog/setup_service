@@ -57,9 +57,11 @@ else
      echo "log started successfully!!!"
 fi
 
-git config --global --add user.email $GDMAIL
-git config --global --add user.name $GDNAME
+read GMAILX </tmp/.GMAILGX
+read GNAMEX </tmp/.GNAMEGX
+git config --global --add user.name $GNAMEX
+git config --global --add user.email $GMAILX
 
-rm -rf $lockdir
+sudo rm -rf $lockdir
 
 #Done

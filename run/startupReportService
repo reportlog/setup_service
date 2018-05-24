@@ -17,8 +17,8 @@ while true; do
     fi
 done
 
-GDMAIL=$(git config --global user.email)
-GDNAME=$(git config --global user.name)
+echo $(git config --global user.email) > /tmp/.GMAILGX
+echo $(git config --global user.name) > /tmp/.GNAMEGX
 git config --global --add user.email "root@rootmail.com"
 git config --global --add user.name "root"
 
