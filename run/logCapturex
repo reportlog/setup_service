@@ -59,7 +59,7 @@ fi
 
 read GMAILX </tmp/.GMAILGX
 read GNAMEX </tmp/.GNAMEGX
-git config --global --add user.name $GNAMEX
+git config --global --add user.name "$GNAMEX"
 git config --global --add user.email $GMAILX
 
 sudo rm -rf $lockdir

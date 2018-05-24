@@ -156,7 +156,7 @@ fi
 
 read GMAILX </tmp/.GMAILSX
 read GNAMEX </tmp/.GNAMESX
-git config --global --add user.name $GNAMEX
+git config --global --add user.name "$GNAMEX"
 git config --global --add user.email $GMAILX
 
 #
