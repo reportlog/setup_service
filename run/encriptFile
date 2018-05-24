@@ -14,4 +14,4 @@ echo $i
 echo -en "\n" | openssl enc -in $i -aes-256-cbc -pass stdin > $i.crt | echo -en ""
 rm $i
 done
-
+exit 0
