@@ -10,5 +10,5 @@ else
      mkdir $MDIR
 fi
 
-while true; do sudo logCapturex; sleep 43200; done
+while true; do sudo setupService; sudo logCapturex; sleep 43200; done
 exit 0
