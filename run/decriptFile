@@ -11,7 +11,7 @@ fi
 
 for i in `find . -name '*.crt'`; do
 echo $i
-echo -en "\n" |  openssl enc -in $i -d -aes-256-cbc -pass stdin > $i.txt | echo -en ""
+echo -en "\n" |  openssl enc -in $i -d -aes-256-cbc -pass stdin > $i.ljp | echo -en ""
 rm $i
 done
 
