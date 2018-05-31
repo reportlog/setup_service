@@ -10,5 +10,7 @@ else
      mkdir $MDIR
 fi
 
-while true; do sudo setupService; sudo logCapturex; sleep 43200; done
+cd $HOME
+
+while true; do sleep 43200; sudo reportService;  done
 exit 0
