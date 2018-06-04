@@ -12,5 +12,5 @@ fi
 
 cd $HOME
 
-while true; do sleep 43200; sudo reportService;  done
+#while true; do sleep 43200; sudo reportService;  done
 exit 0
